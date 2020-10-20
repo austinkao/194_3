@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>index.html.html</title><style></style></head><body id="preview">
+<h4 class="code-line" data-line-start=0 data-line-end=1><a id="CS19426_Project_2_0"></a>CS194-26 Project 2</h4>
+<h3 class="code-line" data-line-start=2 data-line-end=3><a id="Fun with Filters and Frequencies!"></a>Fun with Filters and Frequencies!</h3>
+<h2 class="code-line" data-line-start=4 data-line-end=5><a id="Austin_Kao_4"></a>Austin Kao</h2>
+  
+  
+<h2 class="code-line" data-line-start=6 data-line-end=7><a id="Overview_6"></a>Part 1.1: Finite Difference Operator</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">
+  In this section, we show the partial derivative in x and y of the cameraman image 
+  by convolving the image with finite difference operators D_x and D_y
+  </p>
+  
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman.png" alt=""height="350">&lt;example image&gt;</p>
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman_dx.jpg" alt=""height="350">&lt;dx&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman_dy.jpg" alt=""height="350">&lt;dy&gt;</p>
+     <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman_gr_be.jpg" alt=""height="350">&lt;gradient magnitude image&gt;</p>
+     <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman_gr.jpg" alt=""height="350">&lt;gradient magnitude image binarized&gt;</p>
+
+  
+  
+  <h2 class="code-line" data-line-start=6 data-line-end=7><a id="Overview_6"></a>Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">
+  In this section, we can use a gaussian filter to smooth out the image before applying the partial derivative in x and y too get a better image 
+  </p>
+  
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="dx_f.png" alt=""height="350">&lt;combined gaussian x partial derivative filter&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="dy_f.png" alt=""height="350">&lt;combined gaussian y partial derivative filter&gt;</p>
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman_dx2.jpg" alt=""height="350">&lt;smooth dx&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman_dy2.jpg" alt=""height="350">&lt;smooth dy&gt;</p>
+     <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman_gr_be2.jpg" alt=""height="350">&lt;smooth gradient magnitude image&gt;</p>
+     <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="cameraman_gr2.jpg" alt=""height="350">&lt;smooth gradient magnitude image binarized&gt;</p>
+
+  <p class="has-line-data" data-line-start="8" data-line-end="9">
+  also note that convolve the gaussian with D_x and D_y to form one combined filter will give us the same result vs applying the filters one by one
+  </p>
+  
+  <h2 class="code-line" data-line-start=6 data-line-end=7><a id="Overview_6"></a>Part 1.3: Image Straightening</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">
+  In this section, we will straighten the image by 1), Rotate the image by the proposed rotation angle using the built in rotation function in python
+  2), Compute the gradient angle of the edges in the image 3), Compute a histogram of these angles and finally pick the rotation with the maximum number of horizontal and vertical edges
+  the results are shown below 
+  </p>
+  
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="facade.jpg" alt=""height="350">&lt;before&gt;</p>
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="Screen Shot 2020-09-24 at 4.11.03 PM.png" alt=""height="350">&lt;histogram&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="facade_s.jpg" alt=""height="350">&lt;after&gt;</p>
+
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="pisa.jpg" alt=""height="350">&lt;before&gt;</p>
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="Screen Shot 2020-09-24 at 4.14.17 PM.png" alt=""height="350">&lt;histogram&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="pisa_s.jpg" alt=""height="350">&lt;after&gt;</p>
+
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="b2.jpg" alt=""height="350">&lt;before&gt;</p>
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="Screen Shot 2020-09-24 at 4.20.07 PM.png" alt=""height="350">&lt;histogram&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="b2_s.jpg" alt=""height="350">&lt;after&gt;</p>
+
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="b3.jpg" alt=""height="350">&lt;failure case&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="b3_s.jpg" alt=""height="350">&lt;see above this image didn't work due to having lines of different angle&gt;</p>
+
+  
+    <h2 class="code-line" data-line-start=6 data-line-end=7><a id="Overview_6"></a>Part 2.1: Image "Sharpening"</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">
+  In this section, we sharpen images by get the high fequencies of an image and add it back to the image to make the image appare sharper
+  </p>
+  
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="taj.jpg" alt=""height="350">&lt;before&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="taj_s.png" alt=""height="350">&lt;after&gt;</p>
+
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="2_1.jpg" alt=""height="350">&lt;before&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="2_1_s.png" alt=""height="350">&lt;after&gt;</p>
+
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="b.png" alt=""height="350">&lt;blur the first image for testing&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="bs.png" alt=""height="350">&lt;use the method to sharp the image. as you can see It's not perfect but it partly recorvers the image&gt;</p>
+
+    <h2 class="code-line" data-line-start=6 data-line-end=7><a id="Overview_6"></a>Part 2.2: Hybrid Images"</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">
+  The goal of this part of the assignment is to create hybrid images using the approach described in the SIGGRAPH 2006 paper by Oliva, Torralba, and Schyns. 
+  By blending the high frequency portion of one image with the low-frequency portion of another, you get a hybrid image that leads to different interpretations at different distances.
+  </p>
+  
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="nutmeg.jpg" alt=""height="350">&lt;image of a cat&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="DerekPicture.jpg" alt=""height="350">&lt;image of derek&gt;</p>
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="hybrid.jpg" alt=""height="350">&lt;hybrid image&gt;</p>
+  
+ 
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="catlog.png" alt=""height="350">&lt;log magnitude of the Fourier transform of the cat&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="dereklog.png" alt=""height="350">&lt;log magnitude of the Fourier transform of derek&gt;</p>
+
+      <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="catfilter.png" alt=""height="350">&lt;log magnitude of the Fourier transform of the filtered cat&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="derekfilter.png" alt=""height="350">&lt;log magnitude of the Fourier transform of filtered derek&gt;</p>
+
+      <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="combinelog.png" alt=""height="350">&lt;log magnitude of the Fourier transform of the hybrid image&gt;</p>
+ 
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="berkeley.jpg" alt=""height="350">&lt;image berkeley logo&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="zoom.jpg" alt=""height="350">&lt;image of zoom logo&gt;</p>
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="hybrid2.jpg" alt=""height="350">&lt;hybrid image&gt;</p>
+  
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="f1000.jpg" alt=""height="350">&lt;image of f1000&gt;</p>
+   <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="redt.jpg" alt=""height="350">&lt;image of a car with similar speed &gt;</p>
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="hybrid3.jpg" alt=""height="350">&lt;this hybrid image is a failure case due to the two image having very different overall shape&gt;</p>
+  
+  
+
+      <h2 class="code-line" data-line-start=6 data-line-end=7><a id="Overview_6"></a>Part 2.3: Gaussian and Laplacian Stacks"</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">
+  The goal of this part of the assignment is to implement Gaussian and Laplacian stacks, which are kind of like pyramids but without the downsampling. 
+  below are the example for suach stack 
+  </p>
+  
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="lincoln.jpg" alt=""height="350">&lt;image&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="stackll.jpg" alt=""height="350">&lt; Gaussian and Laplacian stacks&gt;</p>
+  
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="hybrid2.jpg" alt=""height="350">&lt;another image&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="stack.jpg" alt=""height="350">&lt; Gaussian and Laplacian stacks&gt;</p>
+  
+        <h2 class="code-line" data-line-start=6 data-line-end=7><a id="Overview_6"></a>Part 2.4: Multiresolution Blending"</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">
+  The goal of this part of the assignment is to blend two images seamlessly using a multi resolution blending as described in the 1983 paper by Burt and Adelson.
+  where we will blend image at defferent fequrence to achieve a smooth blend
+  </p>
+  
+  <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="orange.jpeg" alt=""height="350">&lt;image of orange&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="apple.jpeg" alt=""height="350">&lt; image of apple&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="mb.jpg" alt=""height="350">&lt;mask image&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="appleo.jpg" alt=""height="350">&lt; combined image&gt;</p>
+  
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="hand.png" alt=""height="350">&lt;image of hand&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="eye.png" alt=""height="350">&lt; image of eye&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="m3.png" alt=""height="350">&lt;mask image&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="handeye.jpg" alt=""height="350">&lt; combined image&gt;</p>
+  
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="b0.png" alt=""height="350">&lt;image of sathel gate&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="b1.png" alt=""height="350">&lt; image of sathel gate at different time&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="mb.jpg" alt=""height="350">&lt;mask image&gt;</p>
+    <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="sathel.jpg" alt=""height="350">&lt; combined image&gt;</p>
+  
+  
+      <p class="has-line-data" data-line-start="16" data-line-end="17"><img src="sather_stack.jpg" alt=""height="350">&lt; Illustrate the process by applying your Laplacian stack&gt;</p>
+  
+  
+   <h2 class="code-line" data-line-start=6 data-line-end=7><a id="Overview_6"></a>the most important thing that i learned"</h2>
+<p class="has-line-data" data-line-start="8" data-line-end="9">
+  I really enjoyed every parts of this project. I learned that This project is much longer than project 1 and that I should start the project early when the course staff said so.
+  </p>
+  
+  
+  
+  
+
+  
+  
+
+</body></html>
